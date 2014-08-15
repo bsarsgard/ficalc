@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Financial Independence Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/media/css/bootstrap.css" media="screen">
+    <link rel="stylesheet" href="/media/css/bootswatch.min.css">
+  </head>
+  <body>
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="/" class="navbar-brand">FI Calculator</a>
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="/help/">Help</a>
+            </li>
+            <li>
+              <a href="/about-fi/">About FI</a>
+            </li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://wrapbootstrap.com/?ref=bsw" target="_blank">WrapBootstrap</a></li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="page-header" id="banner">
+        <div class="row">
+          <div class="col-lg-8 col-md-7 col-sm-6">
+            <h1>Financial Independence Calculator</h1>
+            <p class="lead">Achieve financial independence</p>
+          </div>
+          <div class="col-lg-4 col-md-5 col-sm-6">
+            <div class="sponsor">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <form class="form-horizontal">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="well bs-component">
+              <fieldset>
+                <legend>Basic Financial Data</legend>
+                <div class="form-group">
+                  <label for="salary" class="col-md-5 control-label">Salary</label>
+                  <div class="input-group col-md-6">
+                    <span class="input-group-addon">$</span>
+                    <input type="text" class="form-control" id="salary">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="bills" class="col-md-5 control-label">Monthly Bills</label>
+                  <div class="input-group col-md-6">
+                    <span class="input-group-addon">$</span>
+                    <input type="text" class="form-control" id="bills">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="savings" class="col-md-5 control-label">Current Savings</label>
+                  <div class="input-group col-md-6">
+                    <span class="input-group-addon">$</span>
+                    <input type="text" class="form-control" id="savings">
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="well bs-component">
+              <fieldset>
+                <legend>Debt</legend>
+                <div class="form-group">
+                  <label for="debt" class="col-md-5 control-label">Balance</label>
+                  <div class="input-group col-md-6">
+                    <span class="input-group-addon">$</span>
+                    <input type="text" class="form-control" id="debt">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="debt-payment" class="col-md-5 control-label">Monthly Payment</label>
+                  <div class="input-group col-md-6">
+                    <span class="input-group-addon">$</span>
+                    <input type="text" class="form-control" id="debt-payment">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="debt-interest" class="col-md-5 control-label">Interest</label>
+                  <div class="input-group col-md-6">
+                    <input type="text" class="form-control" id="debt-interest">
+                    <span class="input-group-addon">%</span>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="well bs-component">
+              <fieldset>
+                <legend>Assumptions</legend>
+                <div class="form-group">
+                  <label for="tax" class="col-md-5 control-label">Tax Rate</label>
+                  <div class="input-group col-md-6">
+                    <input type="text" class="form-control" id="tax">
+                    <span class="input-group-addon">%</span>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="return" class="col-md-5 control-label">Market Return</label>
+                  <div class="input-group col-md-6">
+                    <input type="text" class="form-control" id="return">
+                    <span class="input-group-addon">%</span>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="withdraw" class="col-md-5 control-label">Withdraw Rate</label>
+                  <div class="input-group col-md-6">
+                    <input type="text" class="form-control" id="withdraw">
+                    <span class="input-group-addon">%</span>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inflation" class="col-md-5 control-label">Inflation Rate</label>
+                  <div class="input-group col-md-6">
+                    <input type="text" class="form-control" id="inflation">
+                    <span class="input-group-addon">%</span>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <div class="well">
+            <div class="row">
+              <div class="col-lg-12 text-center">
+                <button class="btn btn-primary" id="btn-chart">Update Chart</button>
+              </div>
+            </div>
+            <br/>
+            <div class="row">
+              <div class="col-lg-12 text-center">
+                <div id="stats"></div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12 text-center">
+                <div id="chart"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="row">
+          <div class="col-lg-12">
+            <ul class="list-unstyled">
+              <li class="pull-right"><a href="#top">Back to top</a></li>
+            </ul>
+            <p>Made by <a href="http://atzok.com" rel="nofollow">Ben Sarsgard</a>.
+            <p>Code released under the <a href="https://github.com/bsarsgard">Apache License</a>.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="/media/js/bootstrap.min.js"></script>
+
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        $('#btn-chart').click(function(evt) {
+          evt.preventDefault();
+          $("html, body").animate({
+            scrollTop: $('#btn-chart').offset().top + "px"
+          }, {
+            duration: 500,
+            easing: "swing"
+          });
+
+          var debt = Number($('#debt').val());
+          var debtPayment = Number($('#debt-payment').val());
+          var debtInterest = Number($('#debt-interest').val()) / 100.0;
+          var inflation = Number($('#inflation').val()) / 100.0;
+          var interest = Number($('#return').val()) / 100.0;
+          var withdraw = Number($('#withdraw').val()) / 100.0;
+          var tax = Number($('#tax').val()) / 100.0;
+          var savings = Number($('#savings').val());
+          var bills = Number($('#bills').val());
+          var salary = Number($('#salary').val());
+          salary -= salary * tax;
+          var contributionsTotal = 0;
+          var interestTotal = 0;
+          var goal = (bills - debtPayment) * 12;
+          goal += goal * tax;
+          goal = Math.round(goal / withdraw);
+          var balances = new Array();
+          var contributions = new Array();
+          var interestHistory = new Array();
+          var debtHistory = new Array();
+          var dt = new Date();
+          dt.setFullYear(dt.getFullYear()+1);
+          dt.setMonth(0);
+          dt.setDate(1);
+          balances.push([dt.getTime(), savings]);
+          contributions.push([dt.getTime(), contributionsTotal]);
+          interestHistory.push([dt.getTime(), interestTotal]);
+          debtHistory.push([dt.getTime(), debt]);
+          while (savings < goal && savings >= 0) {
+            // first, interest
+            inter = Math.round(savings * interest);
+            interestTotal += inter;
+            savings += inter;
+            // next earnings
+            contrib = salary - (bills * 12);
+            contributionsTotal += contrib;
+            savings += contrib;
+            // now debt
+            debt -= (debtPayment * 12);
+            debt += Math.round(debt * debtInterest);
+            if (debt <= 0) {
+              debt = 0;
+              bills -= debtPayment;
+            }
+            // finally inflation
+            goal += Math.round(goal * inflation);
+            bills += Math.round(bills * inflation);
+            salary += Math.round(salary * inflation);
+            dt.setFullYear(dt.getFullYear()+1);
+            balances.push([dt.getTime(), savings]);
+            contributions.push([dt.getTime(), contributionsTotal]);
+            interestHistory.push([dt.getTime(), interestTotal]);
+            debtHistory.push([dt.getTime(), debt]);
+          }
+
+          $('#stats').html('<div class="col-md-6"><div class="alert alert-info">Goal: $' + goal + '</div></div><div class="col-md-6"><div class="alert alert-info">Finish Year: ' + dt.getFullYear() + '</div></div>');
+
+          $('#chart').highcharts({
+            chart: {
+              type: 'spline'
+            },
+            title: {
+                text: 'You path to FI'
+            },
+            xAxis: {
+                type: 'datetime'
+            },
+            yAxis: {
+                title: {
+                    text: 'Cash Moneys'
+                },
+                min: 0
+            },
+
+            series: [{
+                name: 'Savings',
+                data: balances
+              },{
+                name: 'Contributions',
+                data: contributions
+              },{
+                name: 'Interest',
+                data: interestHistory
+              },{
+                name: 'Debt',
+                data: debtHistory
+            }]
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
